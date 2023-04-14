@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amigo Secreto</title>
+    <link rel="stylesheet" type="text/css" href="estilo_index.css" media="screen" />
+    <meta charset="UTF-8"/>
+  </head>
+  <body>
+    <div class="container">
+            <div class="card">
+                <h1 class="titulo-amigo">Amigo Secreto</h1>
+                <h2 class="titulo-amigo">Escolha a quantidade de participantes ao lado.</h2>
+            </div>
+            <form>
+                <h3 class="titulo" for="numero">Quantidade de participantes</h3>
+                <input type="number" id="numero" name="numero" min="1" max="100" step="1" value="4">
+
+                <a href="" id="button">Começar</a>
+
+            </form>
+    </div>
+    <script src="amigo.js"></script>
+
+    <script>
+
+        var bt = document.getElementById("button");
+
+        bt.addEventListener('click', () => {
+			const minhaVariavel = document.getElementById("numero").value;
+			const url = `participantes.html?numero=${encodeURIComponent(minhaVariavel)}`;
+			bt.href = url;
+		});
+    </script>
+
+  </body>
+</html>

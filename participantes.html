@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amigo Secreto</title>
+    <link rel="stylesheet" type="text/css" href="estilo_participantes.css" media="screen" />
+  </head>
+  <body>
+        <form class="container" id="conteudo" method="post" action="processar_dados.php">
+
+        </form>
+        <script>
+        const urlParams = new URLSearchParams(window.location.search);
+		const numero = urlParams.get('numero');
+
+		console.log('O ' + numero);
+        const conteudo = document.getElementById('conteudo');
+
+        for(let i = 1; i <= numero; i++){
+
+            const label_nome = document.createElement('label');
+            label_nome.className = 'titulo';
+            label_nome.htmlFor = 'nome';
+            label_nome.innerHTML = 'Nome pessoa ' + i;
+            conteudo.appendChild(label_nome);
+
+            const input_nome = document.createElement('input');
+            input_nome.type = 'text';
+            input_nome.id = 'nome' + i;
+            input_nome.name = 'nome';
+            input_nome.required = true;
+            conteudo.appendChild(input_nome);
+
+            const label = document.createElement('label');
+            label.className = 'titulo';
+            label.htmlFor = 'nome';
+            label.innerHTML = 'Email pessoa ' + i;
+            conteudo.appendChild(label);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'email' + i;
+            input.name = 'email';
+            input.required = true;
+            conteudo.appendChild(input);
+        }
+
+        const input = document.createElement('input');
+        input.type = 'submit';
+        input.id = 'button';
+        input.value = "Enviar";
+        conteudo.appendChild(input);
+      
+	</script>
+  </body>
+</html>
