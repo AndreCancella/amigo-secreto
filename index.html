@@ -19,13 +19,12 @@
 
             </form>
     </div>
-    <script src="amigo.js"></script>
 
     <script>
 
-        var bt = document.getElementById("button");
+      var bt = document.getElementById("button");
 
-        bt.addEventListener('click', () => {
+      bt.addEventListener('click', () => {
 			const minhaVariavel = document.getElementById("numero").value;
 			const url = `participantes.html?numero=${encodeURIComponent(minhaVariavel)}`;
 			bt.href = url;
