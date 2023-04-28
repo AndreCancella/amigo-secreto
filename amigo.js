@@ -38,14 +38,27 @@ bt.innerText = "Enviar";
 conteudo.appendChild(bt);
 
 bt.addEventListener("click", (evt) => {
-  evt.preventDefault();
+    evt.preventDefault();
 
-  const participantes = Array.from(
-    document.querySelectorAll('[id^="nome"]')
-  ).map((nomeInput, index) => {
-    const emailInput = document.getElementById("email" + (index + 1));
-    return { nome: nomeInput.value, email: emailInput.value };
-  });
+    const data = Array.from(
+        document.querySelectorAll('[id^="nome"]')
+    ).map((nomeInput, index) => {
+        const emailInput = document.getElementById("email" + (index + 1));
+        return { nome: nomeInput.value, email: emailInput.value };
+    });
 
-  console.log(participantes);
+
+    $(document).ready(function(){
+        $("#buttonLast").click(function(){
+          $.ajax({
+            url:"http://127.0.0.1:5500/insert.php",
+            method: "POST", 
+            data:$("#requestForm").serialize(),
+            success:function(response)
+            {
+              alert("Well done!");
+            }
+          });
+        });
+    });
 });

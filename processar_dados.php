@@ -1,15 +1,9 @@
 <?php
-$para = $_POST['email'];
-$assunto = 'Amigo secreto';
-$mensagem = 'Seu amigo é: ' + $_POST['nome'];;
+// Recebe os dados JSON enviados
+$json = $_POST['json'];
 
-$headers = 'De: remetente@example.com' . "\r\n" .
-    'Reply-To: remetente@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+// Converte o JSON em um objeto ou array PHP
+$data = json_decode($json);
 
-if (mail($para, $assunto, $mensagem, $headers)) {
-    echo 'Email enviado com sucesso.';
-} else {
-    echo 'Erro ao enviar email.';
-}
+error_log($json);
 ?>
