@@ -49,13 +49,14 @@ bt.addEventListener("click", (evt) => {
 
     console.log(data);
 
-    const json = JSON.stringify(data);
-    const encodedJson = encodeURIComponent(json);
-    
-    const url = `processar_dados.php?json=${encodedJson}`;
-    
-    fetch(url)
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+
+    fetch('processar_dados.php', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => console.log(data.email))
       .catch(error => console.error(error));
 });
