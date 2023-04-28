@@ -57,6 +57,6 @@ bt.addEventListener("click", (evt) => {
 
     fetch('processar_dados.php', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data.email))
+      .then(data => console.log())
       .catch(error => console.error(error));
 });
